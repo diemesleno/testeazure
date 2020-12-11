@@ -28,7 +28,7 @@ add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
 apt update
 export DEBIAN_FRONTEND=noninteractive
 apt install -y ruby2.7 ruby2.7-dev build-essential libssl-dev mariadb-server libmysqlclient-dev rabbitmq-server nodejs git nginx wget nano
-gem install bundler procodile
+gem install bundler:1.17.2 procodile
 
 #
 # MySQL
