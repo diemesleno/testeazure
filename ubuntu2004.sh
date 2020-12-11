@@ -21,14 +21,13 @@ set -e
 #
 apt update
 apt install -y software-properties-common
-apt-add-repository ppa:brightbox/ruby-ng -y
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.coreix.net/mariadb/repo/10.5/ubuntu focal main'
 curl -sL https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | apt-key add -
 add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
 apt update
 export DEBIAN_FRONTEND=noninteractive
-apt install -y ruby2.3 ruby2.3-dev build-essential libssl-dev mariadb-server libmysqlclient-dev rabbitmq-server nodejs git nginx wget nano
+apt install -y ruby2.7 ruby2.7-dev build-essential libssl-dev mariadb-server libmysqlclient-dev rabbitmq-server nodejs git nginx wget nano
 gem install bundler procodile --no-rdoc --no-ri
 
 #
@@ -49,7 +48,7 @@ rabbitmqctl set_permissions -p /postal postal ".*" ".*" ".*"
 # System prep
 #
 useradd -r -m -d /opt/postal -s /bin/bash postal
-setcap 'cap_net_bind_service=+ep' /usr/bin/ruby2.3
+setcap 'cap_net_bind_service=+ep' /usr/bin/ruby2.7
 
 #
 # Application Setup
